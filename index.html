@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Feud Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+ 
+  <div class="screen welcome-screen active" id="welcome-screen">
+    <h1>Welcome to Family Feud</h1>
+    <p>“Think fast and type even faster”</p>
+    <button class="btn" onclick="startGame()">Start Game</button>
+  </div>
+
+ 
+  <div class="screen game-screen" id="game-screen">
+    <div class="game-container">
+      <div class="round-indicator">Round <span id="round-number">1</span> of <span id="total-rounds">3</span></div>
+      <div class="header" id="question">Loading question...</div>
+      <div class="info-bar">
+        <span>Score: <span id="score">0</span></span>
+        <span>Time: <span id="timer">30</span>s</span>
+      </div>
+      <div class="board" id="answer-board"></div>
+      <div class="controls">
+        <input type="text" id="user-answer" placeholder="Type your answer..." autocomplete="off"/>
+        <button class="btn" onclick="submitAnswer()">Submit</button>
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <button id="next-round-btn" class="btn hidden" onclick="nextRound()">Next Round</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
