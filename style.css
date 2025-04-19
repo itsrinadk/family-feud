@@ -1,0 +1,217 @@
+body {
+  font-family: 'Comic Neue', cursive;
+  background: #f8f4ff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.welcome-screen h1 {
+  font-size: 3rem;
+  color: #6a35ff;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.welcome-screen p {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #5a4a78;
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  background-color: #6a35ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(106, 53, 255, 0.3);
+}
+
+.btn:hover {
+  background-color: #5a2de0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(106, 53, 255, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.game-container {
+  max-width: 1000px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9e0ff;
+}
+
+.header {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #6a35ff;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  background: #f3edff;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.info-bar span:first-child {
+  color: #6a35ff;
+  font-weight: bold;
+}
+
+.info-bar span:last-child {
+  color: #ff4757;
+  font-weight: bold;
+}
+
+.board {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.answer-box {
+  background: white;
+  color: #5a4a78;
+  width: 30%;
+  height: 100px;
+  border-radius: 12px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  visibility: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  border: 2px solid #e9e0ff;
+  transition: all 0.3s ease;
+}
+
+.answer-box.revealed {
+  visibility: visible;
+  background: #6a35ff;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(106, 53, 255, 0.3);
+}
+
+.answer-box.correct {
+  background: #2ecc71;
+  border-color: #27ae60;
+}
+
+.answer-box.incorrect {
+  background: #ff4757;
+  border-color: #e84118;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.answer-box.revealed::after {
+  content: "✓";
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.answer-box.incorrect::after {
+  content: "✗";
+  color: white;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#user-answer {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e9e0ff;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+#user-answer:focus {
+  outline: none;
+  border-color: #6a35ff;
+  box-shadow: 0 0 0 3px rgba(106, 53, 255, 0.2);
+}
+
+#next-round-btn {
+  margin-top: 20px;
+  background-color: #2ecc71;
+}
+
+#next-round-btn:hover {
+  background-color: #27ae60;
+}
+
+.hidden {
+  display: none;
+}
+
+.round-indicator {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #6a35ff;
+  font-weight: bold;
+}
+
+.feedback {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  min-height: 24px;
+}
+
+.correct-feedback {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.incorrect-feedback {
+  color: #ff4757;
+  font-weight: bold;
+}
